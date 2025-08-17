@@ -1,0 +1,8 @@
+# Generated files from TypeScript compilation
+*.js
+*.js.map
+*.d.ts
+*.d.ts.map
+
+# Keep the TypeScript source files
+!*.ts
