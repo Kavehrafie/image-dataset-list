@@ -1,277 +1,402 @@
-# Image Dataset Management Monorepo
+# Image Dataset Manager
 
-A comprehensive ecosystem for managing versioned image datasets with utilities optimized for Slidev presentations and web applications.
+A comprehensive TypeScript library for managing versioned image datasets with seamless integration for Slidev presentations. Features powerful utility functions, Cloudinary transformations, and CLI tools for modern web development workflows.
 
-## 📦 Packages
+## Quick Start
 
-### Core Library
-- **[@kavehrafie/image-dataset-manager](./packages/core)** - Main TypeScript library for dataset management
+### 1. For JavaScript/TypeScript Projects
 
-### CLI Tools  
-- **[@kavehrafie/image-dataset-cli](./packages/cli)** - Command-line tools for project setup and dataset management
+```bash
+# Install the core library
+npm install @kavehrafie/image-dataset-manager
 
-### Dataset Collections
-- **[@kavehrafie/iranian-art-dataset](./packages/iranian-art-dataset)** - Curated Iranian modern art collection
+# Add a dataset
+npm install @kavehrafie/iranian-art-dataset
+```
 
-## Features
+```javascript
+import { DatasetManager } from '@kavehrafie/image-dataset-manager'
+import iranianArt from '@kavehrafie/iranian-art-dataset'
 
-- 🎯 **Type-safe** - Full TypeScript support with comprehensive type definitions
-- 📦 **Versioned datasets** - Built-in versioning system for dataset management
-- 🖼️ **Cloudinary integration** - Optimized for Cloudinary transformations
-- 🎪 **Slidev ready** - Purpose-built utilities for presentation software
-- 🔍 **Powerful search** - Search by text, tags, artist, year, and more
-- ⚡ **Performance optimized** - Built-in caching and lazy loading support
-- 🌳 **Tree-shakable** - Import only what you need
-- 🚀 **Zero dependencies** - Lightweight with no external dependencies
+const images = new DatasetManager(iranianArt)
+const heroImage = images.getSlideImage('ziapour_khorus_jangi', 'hero')
+```
+
+### 2. For Slidev Presentations
+
+```bash
+# Create new Slidev project
+npx create-slidev my-presentation
+cd my-presentation
+
+# Setup dataset management
+npx @kavehrafie/image-dataset-cli init --template slidev
+
+# Add Iranian art collection
+npx @kavehrafie/image-dataset-cli add iranian-art
+```
+
+### 3. Command Line Usage
+
+```bash
+# Install CLI globally
+npm install -g @kavehrafie/image-dataset-cli
+
+# Create custom dataset
+idm create my-collection
+
+# Validate dataset structure
+idm validate ./data/my-dataset.json
+```
+
+## Overview
+
+This monorepo contains three packages designed to work together:
+
+### [@kavehrafie/image-dataset-manager](./packages/core) ![npm](https://img.shields.io/npm/v/@kavehrafie/image-dataset-manager)
+
+The core TypeScript library providing:
+- **DatasetManager**: Load and query image datasets
+- **ImageUtils**: Cloudinary transformations and optimizations  
+- **VersionManager**: Handle dataset versioning and updates
+- **Type Safety**: Full TypeScript definitions
+
+### [@kavehrafie/image-dataset-cli](./packages/cli) ![npm](https://img.shields.io/npm/v/@kavehrafie/image-dataset-cli)
+
+Command-line tools for:
+- **Project Setup**: Initialize dataset structure in projects
+- **Dataset Management**: Add, create, and validate datasets
+- **Template Integration**: Slidev-specific configurations
+
+### [@kavehrafie/iranian-art-dataset](./packages/iranian-art-dataset) ![npm](https://img.shields.io/npm/v/@kavehrafie/iranian-art-dataset)
+
+A curated collection of Iranian modern art:
+- **12 High-Quality Images**: From renowned Iranian artists
+- **Rich Metadata**: Artist info, descriptions, historical context
+- **Helper Functions**: Filter by artist, decade, or style
+- **Educational Focus**: Perfect for presentations and research
 
 ## Installation
+
+### Core Library
 
 ```bash
 npm install @kavehrafie/image-dataset-manager
 ```
 
-## Quick Start
+### CLI Tools
 
-```typescript
-import { DatasetManager, createFromJSON } from '@kavehrafie/image-dataset-manager';
+```bash
+# Global installation
+npm install -g @kavehrafie/image-dataset-cli
 
-// Load your dataset
-const dataset = {
-  metadata: {
-    version: "v2025-08-17T00-00-00-000Z",
-    createdAt: "2025-08-17T00:00:00.000Z",
-    updatedAt: "2025-08-17T00:00:00.000Z",
-    description: "My Image Collection"
-  },
-  images: {
-    "my_image": {
-      src: "https://res.cloudinary.com/demo/image/upload/sample.jpg",
-      caption: "A beautiful sample image",
-      tags: ["nature", "sample"]
-    }
-  }
-};
-
-// Create manager instance
-const manager = createFromJSON(dataset);
-
-// Get optimized image for slides
-const slideImage = manager.getSlideImage('my_image', 'hero');
-
-// Search images
-const natureImages = manager.getImagesByTag('nature');
+# Or use directly
+npx @kavehrafie/image-dataset-cli --help
 ```
 
-## Usage in Slidev
+### Dataset Packages
 
-Perfect for Slidev presentations with built-in image optimization:
-
-```vue
-<script setup>
-import { DatasetManager } from '@kavehrafie/image-dataset-manager';
-import myDataset from './data/my-images.json';
-
-const images = new DatasetManager(myDataset);
-</script>
-
-<template>
-  <div class="slide-content">
-    <!-- Hero image with automatic optimization -->
-    <img :src="images.getSlideImage('hero_image', 'hero')" alt="Hero" />
-    
-    <!-- Thumbnail gallery -->
-    <div class="gallery">
-      <img 
-        v-for="img in images.getImagesByTag('gallery')"
-        :key="img.id"
-        :src="images.getSlideImage(img.id, 'thumbnail')"
-        :alt="img.caption"
-      />
-    </div>
-    
-    <!-- Image with caption -->
-    <div class="featured">
-      <img :src="images.getSlideImage('featured', { width: 800, quality: 'auto' })" />
-      <p>{{ images.getImage('featured')?.caption }}</p>
-    </div>
-  </div>
-</template>
+```bash
+npm install @kavehrafie/iranian-art-dataset
 ```
 
-## API Reference
+## Key Features
+
+- **🎨 Slidev Integration**: Optimized for presentation workflows
+- **☁️ Cloudinary Support**: Advanced image transformations
+- **📱 Responsive Images**: Automatic sizing for different screen sizes
+- **🔧 TypeScript First**: Full type safety and IntelliSense
+- **📦 Zero Dependencies**: Lightweight core library
+- **🚀 Modern ESM**: ES modules with CommonJS compatibility
+- **🎯 CLI Tools**: Streamlined project setup and management
+
+## Basic Usage
 
 ### DatasetManager
 
-#### Constructor
-```typescript
-new DatasetManager(dataset: ImageDataset, options?: DatasetManagerOptions)
+```javascript
+import { DatasetManager } from '@kavehrafie/image-dataset-manager'
+import dataset from './my-dataset.json'
+
+const manager = new DatasetManager(dataset)
+
+// Get image by ID
+const image = manager.getImage('artwork_001')
+
+// Get optimized image for presentations
+const slideImage = manager.getSlideImage('artwork_001', 'hero')
 ```
 
-#### Core Methods
+### ImageUtils
 
-**getImage(id: string): ImageData | null**
-Get a single image by ID.
+```javascript
+import { ImageUtils } from '@kavehrafie/image-dataset-manager'
 
-**getAllImages(): ImageSearchResult[]**
-Get all images in the dataset.
+// Apply Cloudinary transformations
+const optimized = ImageUtils.applyCloudinaryTransform(
+  'sample_image',
+  { width: 800, height: 600, crop: 'fill' }
+)
 
-**getImagesByTag(tag: string): ImageSearchResult[]**
-Get all images with a specific tag.
+// Get responsive image with preset
+const responsive = ImageUtils.getResponsiveImage('my_image', 'hero')
+```
 
-**searchImages(query: string, options?: SearchOptions): ImageSearchResult[]**
-Search images with text and filters.
+### VersionManager
 
-#### Slidev Integration
+```javascript
+import { VersionManager } from '@kavehrafie/image-dataset-manager'
 
-**getSlideImage(id: string, options?: SlideImageOptions | string): string**
-Get optimized image URL for slides.
+const versionManager = new VersionManager()
 
-```typescript
-// Using presets
-const heroUrl = manager.getSlideImage('image_id', 'hero');
-const thumbnailUrl = manager.getSlideImage('image_id', 'thumbnail');
+// Check for updates
+const hasUpdates = await versionManager.checkForUpdates('my-dataset', '1.0.0')
 
-// Using custom options
-const customUrl = manager.getSlideImage('image_id', {
-  width: 800,
-  height: 600,
+// Get changelog
+const changelog = await versionManager.getChangelog('my-dataset')
+```
+
+## Cloudinary Integration
+
+Configure Cloudinary for advanced image transformations:
+
+```javascript
+import { ImageUtils } from '@kavehrafie/image-dataset-manager'
+
+// Set your cloud name globally
+ImageUtils.setCloudName('your-cloud-name')
+
+// Use transformations
+const transformed = ImageUtils.applyCloudinaryTransform('image_id', {
+  width: 1200,
+  height: 800,
   crop: 'fill',
-  quality: 'auto'
-});
+  quality: 'auto',
+  format: 'webp'
+})
 ```
 
-**getImageWithCaption(id: string, transform?: SlideImageOptions): ImageWithCaption | null**
-Get image with caption and metadata.
+## Development
 
-**preloadImages(ids: string[], transform?: SlideImageOptions): Promise<void>**
-Preload images for better performance.
+### Prerequisites
 
-#### Dataset Management
-
-**addImages(images: Record<string, ImageData>): void**
-Add new images to the dataset.
-
-**removeImage(id: string): boolean**
-Remove an image from the dataset.
-
-**updateDataset(newData: Partial<ImageDataset>): void**
-Update dataset with new data.
-
-**exportDataset(): ImageDataset**
-Export the complete dataset.
-
-### Image Transforms
-
-#### Presets
-- `thumbnail` - 300x200, optimized for galleries
-- `hero` - 1200x600, perfect for hero sections
-- `fullscreen` - 1920x1080, full-screen displays
-- `medium` - 800x600, general purpose
-
-#### Custom Transforms
-```typescript
-interface TransformOptions {
-  width?: number;
-  height?: number;
-  quality?: 'auto' | number;
-  format?: 'auto' | 'webp' | 'jpg' | 'png';
-  crop?: 'scale' | 'fill' | 'fit' | 'crop';
-  gravity?: 'auto' | 'face' | 'center' | 'north' | 'south' | 'east' | 'west';
-}
-```
-
-### Search Options
-
-```typescript
-interface SearchOptions {
-  tags?: string[];           // Filter by tags
-  artist?: string;          // Filter by artist
-  year?: string | number;   // Filter by year
-  collection?: string;      // Filter by collection
-  limit?: number;          // Limit results
-}
-```
-
-## Dataset Structure
-
-### JSON Format
-```json
-{
-  "metadata": {
-    "version": "v2025-08-17T00-00-00-000Z",
-    "createdAt": "2025-08-17T00:00:00.000Z",
-    "updatedAt": "2025-08-17T00:00:00.000Z",
-    "description": "Dataset description",
-    "tags": ["tag1", "tag2"],
-    "schemaVersion": "1.0.0"
-  },
-  "images": {
-    "image_id": {
-      "src": "https://res.cloudinary.com/demo/image/upload/sample.jpg",
-      "caption": "Image description",
-      "metadata": {
-        "artist": "Artist Name",
-        "year": 2023,
-        "medium": "oil on canvas",
-        "dimensions": "100x80cm",
-        "collection": "Museum Name"
-      },
-      "tags": ["art", "painting"],
-      "cloudinaryTransforms": {
-        "custom_preset": "w_500,h_300,c_fill"
-      }
-    }
-  }
-}
-```
-
-## Versioning
-
-The package uses semantic versioning for itself and timestamp-based versioning for datasets:
-
-```typescript
-import { VersionManager } from '@kavehrafie/image-dataset-manager';
-
-// Generate new version
-const version = VersionManager.generateVersion(); // "v2025-08-17T12-30-45-123Z"
-
-// Create metadata
-const metadata = VersionManager.createMetadata("My dataset", ["art", "photos"]);
-```
-
-## Performance Tips
-
-1. **Use presets** for common transformations
-2. **Enable caching** (enabled by default)
-3. **Preload images** for slide shows
-4. **Use appropriate image sizes** for your use case
-
-## Browser Support
-
-- Modern browsers with ES2020 support
 - Node.js 16+
-- Works in both CommonJS and ES modules
+- npm 7+
+
+### Setup
+
+```bash
+# Clone repository
+git clone https://github.com/kavehrafie/image-dataset-list.git
+cd image-dataset-list
+
+# Install dependencies
+npm install
+
+# Build all packages
+npm run build
+
+# Run tests
+npm test
+```
+
+### Package Structure
+
+```
+packages/
+├── core/                 # Main library (@kavehrafie/image-dataset-manager)
+├── cli/                  # CLI tools (@kavehrafie/image-dataset-cli)
+└── iranian-art-dataset/  # Sample dataset (@kavehrafie/iranian-art-dataset)
+```
+
+### Development Workflow
+
+1. Make changes in relevant package
+2. Run tests: `npm test`
+3. Build: `npm run build`
+4. Test locally: `npm link` in package directory
+
+## Versioning and Publishing
+
+### Development Workflow
+
+```bash
+# 1. Clone and setup
+git clone https://github.com/kavehrafie/image-dataset-list.git
+cd image-dataset-list
+npm install
+
+# 2. Make changes and test
+npm run build
+npm test
+
+# 3. Update package versions
+cd packages/core && npm version patch  # or minor/major
+cd packages/cli && npm version patch
+cd packages/iranian-art-dataset && npm version patch
+```
+
+### Publishing Process
+
+#### Individual Package Publishing
+
+```bash
+# Core library
+cd packages/core
+npm publish --access public
+
+# CLI tools
+cd packages/cli  
+npm publish --access public
+
+# Dataset
+cd packages/iranian-art-dataset
+npm publish --access public
+```
+
+#### Automated Publishing (Lerna)
+
+```bash
+# Publish all changed packages
+npx lerna publish
+
+# Publish specific version
+npx lerna publish --exact
+```
+
+### Pre-Publication Checklist
+
+- [ ] All tests passing (`npm test`)
+- [ ] Build successful (`npm run build`)
+- [ ] Version numbers updated
+- [ ] CHANGELOG.md updated
+- [ ] README.md reviewed
+- [ ] No sensitive data in packages
+
+### Version Strategy
+
+- **Core Library**: Semantic versioning (major.minor.patch)
+  - Major: Breaking API changes
+  - Minor: New features, backward compatible
+  - Patch: Bug fixes
+  
+- **CLI Tools**: Follows core library major/minor versions
+  - Independent patch versions for tool-specific fixes
+  
+- **Dataset Packages**: Content-based versioning
+  - Major: Structural changes to dataset schema
+  - Minor: New images or metadata fields
+  - Patch: Corrections, optimizations
+
+### Dependency Management
+
+```bash
+# Update dependencies across all packages
+npx lerna exec -- npm update
+
+# Check for outdated packages
+npx lerna exec -- npm outdated
+
+# Add dependency to specific package
+npx lerna add lodash --scope=@kavehrafie/image-dataset-manager
+```
+
+### Release Notes Template
+
+```markdown
+## [1.2.0] - 2024-01-15
+
+### Added
+- New transformation presets for mobile displays
+- Support for WebP format optimization
+
+### Changed  
+- Improved error handling in DatasetManager
+- Updated TypeScript to 5.0
+
+### Fixed
+- Fixed memory leak in large dataset processing
+- Corrected Cloudinary URL generation for special characters
+
+### Breaking Changes
+- None
+
+### Migration Guide
+- No migration required for this version
+```
+
+### Emergency Fixes
+
+For critical bugs requiring immediate patch:
+
+```bash
+# 1. Create hotfix branch
+git checkout -b hotfix/critical-bug main
+
+# 2. Fix and test
+npm test
+
+# 3. Version bump (patch only)
+cd packages/core && npm version patch
+
+# 4. Publish immediately
+npm publish --access public
+
+# 5. Merge back to main
+git checkout main
+git merge hotfix/critical-bug
+```
+
+### Package Size Monitoring
+
+```bash
+# Check package sizes before publishing
+npx bundlesize
+
+# Analyze what's included
+npm pack --dry-run
+```
+
+## FAQ
+
+### Can I use this with other presentation frameworks besides Slidev?
+
+Yes! While optimized for Slidev, the core library works with any JavaScript framework including React, Vue, Angular, or vanilla HTML/JS.
+
+### How do I add my own images to a dataset?
+
+Use the CLI to create a new dataset:
+
+```bash
+idm create my-photos
+```
+
+Then edit the generated JSON file to add your image metadata.
+
+### Can I use external image URLs instead of Cloudinary?
+
+Absolutely! The `url` field in each image object can point to any accessible image URL. Cloudinary integration is optional.
+
+### How do I contribute new datasets?
+
+1. Fork this repository
+2. Create a new package in `packages/` following the Iranian art dataset structure  
+3. Submit a pull request with proper attribution and licensing
+
+### What image formats are supported?
+
+The library supports any web-compatible image format (JPEG, PNG, WebP, SVG). Cloudinary transformations work best with JPEG and PNG.
 
 ## Contributing
 
-1. Fork the repository
-2. Create your feature branch (`git checkout -b feature/amazing-feature`)
-3. Commit your changes (`git commit -m 'Add some amazing feature'`)
-4. Push to the branch (`git push origin feature/amazing-feature`)
-5. Open a Pull Request
+We welcome contributions! Please see our [Contributing Guide](CONTRIBUTING.md) for details.
 
 ## License
 
-MIT License - see the [LICENSE](LICENSE) file for details.
+MIT License - see [LICENSE](LICENSE) file for details.
 
-## Examples
+## Support
 
-See the `/examples` directory for complete usage examples including:
-- Basic Slidev integration
-- Advanced search and filtering
-- Custom transform presets
-- Dataset migration scripts
-
----
-
-Built with ❤️ for the creative community
+- 📖 [Documentation](https://github.com/kavehrafie/image-dataset-list#readme)
+- 🐛 [Issue Tracker](https://github.com/kavehrafie/image-dataset-list/issues)  
+- 💬 [Discussions](https://github.com/kavehrafie/image-dataset-list/discussions)
