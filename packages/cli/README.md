@@ -15,6 +15,7 @@ npx @kavehrafie/image-dataset-cli --help
 ## Commands
 
 ### Initialize Project
+
 ```bash
 # Create dataset management structure in current directory
 idm init
@@ -24,6 +25,7 @@ idm init --template slidev
 ```
 
 ### Add Datasets
+
 ```bash
 # Add Iranian art collection
 idm add iranian-art
@@ -33,6 +35,7 @@ idm add iranian-art --dir ./assets/data
 ```
 
 ### Create Custom Dataset
+
 ```bash
 # Create new empty dataset
 idm create my-collection
@@ -42,12 +45,14 @@ idm create my-photos --dir ./data
 ```
 
 ### List Available Datasets
+
 ```bash
 # Show all bundled datasets
 idm list
 ```
 
 ### Validate Dataset
+
 ```bash
 # Validate dataset against schema
 idm validate ./data/my-dataset.json

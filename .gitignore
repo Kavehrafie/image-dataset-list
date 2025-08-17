@@ -14,6 +14,17 @@ build/
 packages/*/dist/
 packages/*/build/
 
+# TypeScript
+*.tsbuildinfo
+tsconfig.tsbuildinfo
+**/*.tsbuildinfo
+
+# Generated TypeScript files in examples (compiled output)
+packages/*/examples/*.d.ts
+packages/*/examples/*.d.ts.map
+packages/*/examples/*.js
+packages/*/examples/*.js.map
+
 # Environment variables
 .env
 .env.local
@@ -21,8 +32,10 @@ packages/*/build/
 .env.test.local
 .env.production.local
 
-# IDE files
-.vscode/
+# IDE files - keep our workspace config but ignore user-specific
+.vscode/launch.json
+.vscode/c_cpp_properties.json
+.vscode/*.code-workspace
 .idea/
 *.swp
 *.swo
@@ -79,3 +92,21 @@ temp/
 
 # Lerna
 .lerna-debug-*
+
+# Generated documentation
+docs/api/
+*.api.md
+
+# Editor temporary files
+.#*
+\#*#
+.emacs.d/
+.swn
+.swo
+
+# Package lock conflicts
+package-lock.json.orig
+yarn.lock.orig
+
+# Performance monitoring
+.clinic/

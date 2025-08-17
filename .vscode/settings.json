@@ -1,0 +1,35 @@
+{
+  "typescript.preferences.includePackageJsonAutoImports": "on",
+  "typescript.suggest.autoImports": true,
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "typescript.preferences.useAliasesForRenames": false,
+  "typescript.workspaceSymbols.scope": "allOpenProjects",
+
+  // Enable TypeScript for the entire workspace
+  "typescript.disableAutomaticTypeAcquisition": false,
+
+  // Multi-root workspace settings
+  "search.exclude": {
+    "**/node_modules": true,
+    "**/dist": true,
+    "**/.git": true
+  },
+
+  // File associations
+  "files.associations": {
+    "*.json": "jsonc"
+  },
+
+  // Auto-detect TypeScript projects
+  "typescript.preferences.experimental.enableProjectDiagnostics": true,
+
+  // Workspace-wide formatting
+  "editor.formatOnSave": true,
+  "editor.codeActionsOnSave": {
+    "source.fixAll.eslint": "explicit"
+  },
+
+  // Import suggestions across packages
+  "typescript.suggest.includeCompletionsForModuleExports": true,
+  "typescript.suggest.includeAutomaticOptionalChainCompletions": true
+}
