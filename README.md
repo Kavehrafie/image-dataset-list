@@ -1,6 +1,17 @@
-# Image Dataset Manager
+# Image Dataset Management Monorepo
 
-A robust TypeScript package for managing versioned image datasets with utility functions optimized for Slidev presentations and web applications.
+A comprehensive ecosystem for managing versioned image datasets with utilities optimized for Slidev presentations and web applications.
+
+## 📦 Packages
+
+### Core Library
+- **[@kavehrafie/image-dataset-manager](./packages/core)** - Main TypeScript library for dataset management
+
+### CLI Tools  
+- **[@kavehrafie/image-dataset-cli](./packages/cli)** - Command-line tools for project setup and dataset management
+
+### Dataset Collections
+- **[@kavehrafie/iranian-art-dataset](./packages/iranian-art-dataset)** - Curated Iranian modern art collection
 
 ## Features
 
@@ -16,13 +27,13 @@ A robust TypeScript package for managing versioned image datasets with utility f
 ## Installation
 
 ```bash
-npm install image-dataset-manager
+npm install @kavehrafie/image-dataset-manager
 ```
 
 ## Quick Start
 
 ```typescript
-import { DatasetManager, createFromJSON } from 'image-dataset-manager';
+import { DatasetManager, createFromJSON } from '@kavehrafie/image-dataset-manager';
 
 // Load your dataset
 const dataset = {
@@ -57,7 +68,7 @@ Perfect for Slidev presentations with built-in image optimization:
 
 ```vue
 <script setup>
-import { DatasetManager } from 'image-dataset-manager';
+import { DatasetManager } from '@kavehrafie/image-dataset-manager';
 import myDataset from './data/my-images.json';
 
 const images = new DatasetManager(myDataset);
@@ -219,7 +230,7 @@ interface SearchOptions {
 The package uses semantic versioning for itself and timestamp-based versioning for datasets:
 
 ```typescript
-import { VersionManager } from 'image-dataset-manager';
+import { VersionManager } from '@kavehrafie/image-dataset-manager';
 
 // Generate new version
 const version = VersionManager.generateVersion(); // "v2025-08-17T12-30-45-123Z"

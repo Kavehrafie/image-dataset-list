@@ -1,0 +1,41 @@
+{
+  "name": "@kavehrafie/iranian-art-dataset",
+  "version": "1.0.0",
+  "type": "module",
+  "description": "Curated collection of Iranian modern art images with metadata",
+  "main": "index.js",
+  "files": [
+    "iranian-modern-art-v1.json",
+    "index.js",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "echo 'No build needed for dataset package'",
+    "validate": "node scripts/validate.js"
+  },
+  "keywords": [
+    "art",
+    "iran",
+    "modern-art",
+    "dataset",
+    "images",
+    "cultural",
+    "painting",
+    "ziapour",
+    "pezeshkniya"
+  ],
+  "author": "Kaveh Rafie <kaveh_rafie@yahoo.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kavehrafie/image-dataset-list.git",
+    "directory": "packages/iranian-art-dataset"
+  },
+  "bugs": {
+    "url": "https://github.com/Kavehrafie/image-dataset-list/issues"
+  },
+  "homepage": "https://github.com/Kavehrafie/image-dataset-list/tree/main/packages/iranian-art-dataset#readme",
+  "peerDependencies": {
+    "@kavehrafie/image-dataset-manager": "^1.0.0"
+  }
+}

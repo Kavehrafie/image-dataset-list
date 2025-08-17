@@ -1,0 +1,59 @@
+{
+  "name": "@kavehrafie/image-dataset-manager",
+  "version": "1.0.1",
+  "type": "module",
+  "description": "A robust TypeScript package for managing versioned image datasets with utility functions for Slidev presentations",
+  "main": "dist/index.js",
+  "module": "dist/index.esm.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "schema",
+    "README.md"
+  ],
+  "scripts": {
+    "build": "rollup -c",
+    "dev": "rollup -c -w",
+    "test": "jest",
+    "test:watch": "jest --watch",
+    "type-check": "tsc --noEmit",
+    "lint": "eslint src --ext .ts",
+    "clean": "rm -rf dist",
+    "prepublishOnly": "npm run test && npm run build"
+  },
+  "keywords": [
+    "images",
+    "dataset",
+    "slidev",
+    "typescript",
+    "versioning",
+    "cloudinary",
+    "art",
+    "presentations",
+    "image-management"
+  ],
+  "author": "Kaveh Rafie <kaveh_rafie@yahoo.com>",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Kavehrafie/image-dataset-list.git",
+    "directory": "packages/core"
+  },
+  "bugs": {
+    "url": "https://github.com/Kavehrafie/image-dataset-list/issues"
+  },
+  "homepage": "https://github.com/Kavehrafie/image-dataset-list/tree/main/packages/core#readme",
+  "devDependencies": {
+    "@types/jest": "^29.5.5",
+    "@typescript-eslint/eslint-plugin": "^6.7.2",
+    "@typescript-eslint/parser": "^6.7.2",
+    "eslint": "^8.49.0",
+    "jest": "^29.7.0",
+    "rollup": "^3.29.4",
+    "@rollup/plugin-typescript": "^11.1.4",
+    "rollup-plugin-dts": "^6.0.2",
+    "ts-jest": "^29.1.1",
+    "typescript": "^5.2.2",
+    "tslib": "^2.6.2"
+  }
+}
