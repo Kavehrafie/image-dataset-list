@@ -1,0 +1,114 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "title": "Image Dataset Schema",
+  "description": "Schema for image dataset with metadata and versioning",
+  "type": "object",
+  "required": ["metadata", "images"],
+  "properties": {
+    "metadata": {
+      "type": "object",
+      "required": ["version", "createdAt", "updatedAt"],
+      "properties": {
+        "version": {
+          "type": "string",
+          "pattern": "^v\\d{4}-\\d{2}-\\d{2}T\\d{2}-\\d{2}-\\d{2}-\\d{3}Z$",
+          "description": "Version string in format vYYYY-MM-DDTHH-MM-SS-sssZ"
+        },
+        "createdAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "ISO 8601 date-time string"
+        },
+        "updatedAt": {
+          "type": "string",
+          "format": "date-time",
+          "description": "ISO 8601 date-time string"
+        },
+        "description": {
+          "type": "string",
+          "description": "Human-readable description of the dataset"
+        },
+        "tags": {
+          "type": "array",
+          "items": {
+            "type": "string"
+          },
+          "description": "Array of tags for the dataset"
+        },
+        "schemaVersion": {
+          "type": "string",
+          "description": "Schema version for compatibility"
+        }
+      }
+    },
+    "images": {
+      "type": "object",
+      "patternProperties": {
+        "^[a-zA-Z0-9_-]+$": {
+          "type": "object",
+          "required": ["src", "caption"],
+          "properties": {
+            "src": {
+              "type": "string",
+              "format": "uri",
+              "description": "URL to the image"
+            },
+            "caption": {
+              "type": "string",
+              "description": "Caption or description of the image"
+            },
+            "metadata": {
+              "type": "object",
+              "properties": {
+                "artist": {
+                  "type": "string",
+                  "description": "Artist name"
+                },
+                "year": {
+                  "oneOf": [{ "type": "string" }, { "type": "number" }],
+                  "description": "Year of creation"
+                },
+                "medium": {
+                  "type": "string",
+                  "description": "Medium or technique used"
+                },
+                "dimensions": {
+                  "type": "string",
+                  "description": "Physical dimensions"
+                },
+                "collection": {
+                  "type": "string",
+                  "description": "Collection or museum"
+                },
+                "location": {
+                  "type": "string",
+                  "description": "Geographic location"
+                }
+              },
+              "additionalProperties": true,
+              "description": "Additional metadata about the image"
+            },
+            "tags": {
+              "type": "array",
+              "items": {
+                "type": "string"
+              },
+              "description": "Array of tags for categorization"
+            },
+            "cloudinaryTransforms": {
+              "type": "object",
+              "patternProperties": {
+                "^[a-zA-Z0-9_-]+$": {
+                  "type": "string"
+                }
+              },
+              "description": "Named Cloudinary transformations"
+            }
+          }
+        }
+      },
+      "additionalProperties": false,
+      "description": "Collection of images indexed by ID"
+    }
+  }
+}

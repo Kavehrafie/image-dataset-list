@@ -1,0 +1,138 @@
+{
+  "metadata": {
+    "version": "v2025-08-17T00-00-00-000Z",
+    "createdAt": "2025-08-17T00:00:00.000Z",
+    "updatedAt": "2025-08-17T00:00:00.000Z",
+    "description": "Iranian Modern Art Image Dataset - Curated collection of artworks and related cultural imagery",
+    "tags": ["art", "iran", "modern", "painting", "sculpture", "cultural"],
+    "schemaVersion": "1.0.0"
+  },
+  "images": {
+    "ziapour_khorus_jangi": {
+      "src": "https://res.cloudinary.com/image-solar/image/upload/c_scale,f_auto,h_1441/v1743152775/ziapour/Khorous_Jangi_1_1_annotated-1_nx7omy.png",
+      "caption": "Jalil Ziapour, Khorus Jangi magazine cover, 1949",
+      "metadata": {
+        "artist": "Jalil Ziapour",
+        "year": 1949,
+        "medium": "magazine cover",
+        "collection": "cultural_documents"
+      },
+      "tags": ["ziapour", "magazine", "1940s", "cultural_documents"]
+    },
+    "picasso_rooster": {
+      "src": "https://res.cloudinary.com/image-solar/image/upload/f_auto/v1743141407/ziapour/picasso_rooster_g4gc74.png",
+      "caption": "Pablo Picasso, *A Rooster*, 1948, pastel and paper, 77.5 × 54 cm",
+      "metadata": {
+        "artist": "Pablo Picasso",
+        "year": 1948,
+        "medium": "pastel and paper",
+        "dimensions": "77.5 × 54 cm"
+      },
+      "tags": ["picasso", "rooster", "1940s", "pastel", "reference"]
+    },
+    "az_shar-e_sobh": {
+      "src": "https://res.cloudinary.com/image-solar/image/upload/c_scale,h_1161/v1743152775/ziapour/Khorous_Jangi_1_1_annotated-2_qklcre.png",
+      "caption": "\"From the City of Morning (Az Shahr-e Ṣobḥ)\" by Nīmā Yūshīj, 1948",
+      "metadata": {
+        "artist": "Nīmā Yūshīj",
+        "year": 1948,
+        "medium": "poetry",
+        "collection": "literature"
+      },
+      "tags": ["nima_yushij", "poetry", "1940s", "literature"]
+    },
+    "pezeshkniya_rooster": {
+      "src": "https://res.cloudinary.com/image-solar/image/upload/c_scale,f_auto,w_1502/v1743141411/ziapour/pezeshknia-khorus_sbetnp.jpg",
+      "caption": "Hūshang Pezeshkniya, *Rooster*, the late 1960s, oil pastel and gouache on cardboard, 70 × 50 cm, from the collection of Ms Nilūfar Pezeshkniya",
+      "metadata": {
+        "artist": "Hūshang Pezeshkniya",
+        "year": "late 1960s",
+        "medium": "oil pastel and gouache on cardboard",
+        "dimensions": "70 × 50 cm",
+        "collection": "private collection of Ms Nilūfar Pezeshkniya"
+      },
+      "tags": ["pezeshkniya", "rooster", "1960s", "oil_pastel", "gouache"]
+    },
+    "ziapour_public_bath": {
+      "src": "https://res.cloudinary.com/image-solar/image/upload/f_auto/v1743141291/ziapour/56cc3baf-8325-4894-a00b-a5a1d94e9db7_yvkou2.png",
+      "caption": "Jalil Ziāpour, <i>Public Bath (Hamām-i Umūmī)</i>, 1949, oil on canvas, TMoCA",
+      "metadata": {
+        "artist": "Jalil Ziāpour",
+        "year": 1949,
+        "medium": "oil on canvas",
+        "collection": "TMoCA"
+      },
+      "tags": ["ziapour", "public_bath", "1940s", "oil_painting", "tmoca"]
+    },
+    "ziapour_sepahsalar": {
+      "src": "https://res.cloudinary.com/image-solar/image/upload/c_crop,g_north_west,h_770,w_550/v1743290112/ziapour/13WEB_kgrqqr.jpg",
+      "caption": "Jalil Ziāpour, Sepahsālār Mosque, 1950, oil on canvas, 80cm x 120cm, TMoCA",
+      "metadata": {
+        "artist": "Jalil Ziāpour",
+        "year": 1950,
+        "medium": "oil on canvas",
+        "dimensions": "80cm x 120cm",
+        "collection": "TMoCA"
+      },
+      "tags": [
+        "ziapour",
+        "mosque",
+        "1950s",
+        "oil_painting",
+        "tmoca",
+        "architecture"
+      ]
+    },
+    "pezeshkniya_scientific": {
+      "src": "https://res.cloudinary.com/image-solar/image/upload/f_auto/v1743141277/ziapour/66_b8e61306d9e3eb551951c0ade9c440e6_1540709925_funzws.jpg",
+      "caption": "Hūshang Pezeshkniya, Scientific Theory, 1972, mixed media, TMoCA",
+      "metadata": {
+        "artist": "Hūshang Pezeshkniya",
+        "year": 1972,
+        "medium": "mixed media",
+        "collection": "TMoCA"
+      },
+      "tags": ["pezeshkniya", "scientific", "1970s", "mixed_media", "tmoca"]
+    },
+    "pezeshkniya_kark": {
+      "src": "https://res.cloudinary.com/image-solar/image/upload/f_auto/v1743154168/ziapour/Pasted_image_20240120094645_podmda.png",
+      "caption": "Hūshang Pezeshkniya, Kārk, 1958",
+      "metadata": {
+        "artist": "Hūshang Pezeshkniya",
+        "year": 1958,
+        "medium": "unknown"
+      },
+      "tags": ["pezeshkniya", "kark", "1950s"]
+    },
+    "sheybani_untitled": {
+      "src": "https://res.cloudinary.com/image-solar/image/upload/f_auto/v1743141307/ziapour/66_06b2f6969cf6a5b597991fa68070621c_1540709985_i6ekx1.jpg",
+      "caption": "Manouchehr Sheybānī, *Untitled*, 1958, oil on canvas, TMoCA",
+      "metadata": {
+        "artist": "Manouchehr Sheybānī",
+        "year": 1958,
+        "medium": "oil on canvas",
+        "collection": "TMoCA"
+      },
+      "tags": ["sheybani", "untitled", "1950s", "oil_painting", "tmoca"]
+    },
+    "ziapour_giveh": {
+      "src": "https://res.cloudinary.com/image-solar/image/upload/v1743141424/ziapour/ziapour_w_giveh_he78dy.png",
+      "caption": "Ziapour in professional attire and giveh, Sum-i Sarā, Gilan province, in 1952. From the artist's family album.",
+      "metadata": {
+        "artist": "Jalil Ziapour",
+        "year": 1952,
+        "medium": "photograph",
+        "location": "Sum-i Sarā, Gilan province",
+        "collection": "artist's family album"
+      },
+      "tags": [
+        "ziapour",
+        "photograph",
+        "1950s",
+        "giveh",
+        "personal",
+        "ethnographic"
+      ]
+    }
+  }
+}
